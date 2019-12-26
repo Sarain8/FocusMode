@@ -1,0 +1,44 @@
+{
+  "name": "Block Sites",
+
+  "short_name": "Block Sites",
+
+  "description": "The chrome extension will able to block user-defined sites for user-defined amount of time.",
+
+  "version": "1.0.0",
+
+  "permissions": [
+    "tabs",
+    "storage",
+    "activeTab"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["redirect.js"],
+      "run_at": "document_end"
+    }
+  ],
+  
+  "icons": {
+    "16": "16x16.png",
+    "48": "48x48.png",
+    "128": "128x128.png"
+  },
+
+  "web_accessible_resources": [
+    "redirect.html"
+  ],
+
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+
+  "background": {
+    "scripts": ["background_page.js"],
+    "persistent": false
+  },
+
+  "manifest_version": 2
+}
